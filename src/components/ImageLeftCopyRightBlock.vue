@@ -32,7 +32,9 @@ defineProps<{
 			<table align="center" cellpadding="0" cellspacing="0" border="0" role="presentation" style="width:85%;">
 			<tr>
 			<td align="center" valign="top" style="padding-top:20px;">
-					<h2 style="margin:0;padding:0;color:#4d4d4d;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:28px;font-weight:700;line-height:38px;text-align:left;">{{ headline }}</h2>
+					<h2 style="margin:0;padding:0;color:#4d4d4d;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:28px;font-weight:700;line-height:38px;text-align:left;">
+						<slot name="headline"/>
+					</h2>
 			</td>
 			</tr>
 			<tr>
@@ -40,7 +42,7 @@ defineProps<{
 				<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
 				<tr>
 				<td width="16" style="padding:4px 0;">
-						<img src="../assets/icn-checkmark-orange.png" alt="" width="16" style="width:16px;" />
+						<slot name="iconImage"></slot>
 				</td>
 				<td align="center" style="padding:4px 0;padding-left:10px;">
 						<p style="margin:0;padding:0;color:#4d4d4d;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:20px;text-align:left;">{{bulletOne}}</p>
@@ -48,7 +50,7 @@ defineProps<{
 				</tr>
 				<tr>
 				<td width="16" style="padding:4px 0;">
-						<img src="../assets/icn-checkmark-orange.png" alt="" width="16" style="width:16px;" />
+					<slot name="iconImage"></slot>
 				</td>
 				<td align="center" style="padding:4px 0;padding-left:10px;">
 						<p style="margin:0;padding:0;color:#4d4d4d;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:20px;text-align:left;">{{bulletTwo}}</p>
@@ -56,7 +58,7 @@ defineProps<{
 				</tr>
 				<tr>
 				<td width="16" style="padding:4px 0;">
-						<img src="../assets/icn-checkmark-orange.png" alt="" width="16" style="width:16px;" />
+					<slot name="iconImage"></slot>
 				</td>
 				<td align="center" style="padding:4px 0;padding-left:10px;">
 						<p style="margin:0;padding:0;color:#4d4d4d;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:20px;text-align:left;">{{ bulletThree }}</p>

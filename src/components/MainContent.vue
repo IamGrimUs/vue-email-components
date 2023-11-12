@@ -1,23 +1,36 @@
 <script setup lang="ts">
 	import HeroBlock from './HeroBlock.vue'
 	import CopyBlock from './CopyBlock.vue'
+	import MainTable from './MainTable.vue'
 	import ImageLeftCopyRightBlock from './ImageLeftCopyRightBlock.vue'
 </script>
 
 <template>
-	<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" width="600" style="background-color: #ffffff;border-radius:8px;width:100%;max-width: 600px;">
-	<tr>
-	<td align="center" style="padding-top:40px;">
-		<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" width="600" style="width:100%;">
-		<tr>
-		<td align="center" style="padding-bottom:50px;">
-			<HeroBlock img="hero-01.png" alt="This is an image" wdth="150"/>
-			<CopyBlock headline="Fname, keep using your&nbsp;card" bodyOne="Keep using your $X,XXX credit line to get" bodyTwo="the most value out of your Prosper"/>
-			<ImageLeftCopyRightBlock headline="There are many ways to use <br class='mblhd'/>your credit line" bulletOne="In-person" bulletTwo="Online" bulletThree="In your digital wallet"/>
-		</td>
-		</tr>
-		</table>
-	</td>
-	</tr>
-	</table>
+	<MainTable>
+		<template v-slot:heroBlock>
+			<HeroBlock>
+				<img src="src/assets/hero-01.png" alt="alt" width="150" style="display:block; border:0; outline:0; padding:0;font-family:Helvetica, Arial, sans-serif; font-size:16px; color:#4d4d4d;width:150px;margin:0 auto;" class="lft-algn" />
+			</HeroBlock>
+		</template>
+		<template v-slot:copyBlock>
+			<CopyBlock>
+				<template v-slot:headline>
+					Fname, keep using your&nbsp;card
+				</template>
+				<template v-slot:bodyCopy>
+					Keep using your $X,XXX credit line to get <br class="mblhd" />the most value out of your Prosper<span style="font-size:8px;line-height: 0;vertical-align: 6px;">&reg;</span>&nbsp;card.
+				</template>
+			</CopyBlock>
+		</template>
+		<template v-slot:detailsBlock>
+			<ImageLeftCopyRightBlock bulletTwo="Online" bulletThree="In your digital wallet">
+				<template v-slot:headline>
+					<ImageLeftCopyRightBlock bulletOne="In-person" bulletTwo="Online" bulletThree="In your digital wallet">There are many ways to use <br class='mblhd'/>your credit line</ImageLeftCopyRightBlock>
+				</template>
+				<template v-slot:iconImage>
+					<img src="../assets/icn-checkmark-orange.png" alt="" width="16" style="width:16px;" />
+				</template>
+			</ImageLeftCopyRightBlock>
+		</template>
+	</MainTable>
 </template>
