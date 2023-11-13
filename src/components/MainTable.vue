@@ -1,11 +1,19 @@
+<script setup lang="ts">
+	defineProps<{
+		tableWidth: string
+		paddingTop: string
+		paddingBottom: string
+	}>()
+</script>
+
 <template>
-	<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" width="600" style="background-color: #ffffff;border-radius:8px;width:100%;max-width: 600px;">
+	<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" :width="tableWidth" :style="{'background-color': '#ffffff', 'border-radius':'8px', width:'100%', 'max-width': `${tableWidth}px`}">
 	<tr>
-	<td align="center" style="padding-top:40px;">
-		<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" width="600" style="width:100%;">
+	<td align="center" :style="{'padding-top': `${paddingTop}px`}">
+		<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" :width="tableWidth" style="width:100%;">
 		<tr>
-		<td align="center" style="padding-bottom:50px;">
-			<slot name="heroBlock" />
+		<td align="center" :style="{'padding-bottom': `${paddingBottom}px`}">
+			<slot name="imageBlock" />
 			<slot name="copyBlock" />
 			<slot name="detailsBlock" />
 		</td>
